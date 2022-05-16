@@ -10,9 +10,11 @@
 </head>
 <body>
 <h1>Welcome on page 2</h1>
-
-<input id="login" type="text">Login</input></br>
-<input id="mdp" type="text">Mdp</input></br>
+<form action = "https://server-ift-test.herokuapp.com/user" method = "POST">
+         Login : <input type = "text" name = "username">  <br>
+         Password: <input type = "text" name = "password">
+         <input type = "submit" value = "Submit">
+ </form>
 <button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
 <button id="submitregister" type="button" onclick="alert('Click 1')">Register</button></br>
 <a href="/">Home</a>
