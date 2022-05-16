@@ -9,6 +9,14 @@
 </script>
 </head>
 <body>
+<h1>Welcome on page 2</h1>
+         Login : <input type = "text" id = "username">  <br>
+         Password: <input type = "text" id = "password">
+
+
+<button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
+<button id="submitregister" type="button">Register</button></br>
+<a href="/">Home</a>
 <script>
 document.getElementById("submitregister").addEventListener("click", register);
 function register(){
@@ -31,13 +39,5 @@ fetch("https://server-ift-test.herokuapp.com/user",
 .then(function(data){ alert( JSON.stringify( data ) ) })
 }
 </script>
-<h1>Welcome on page 2</h1>
-         Login : <input type = "text" id = "username">  <br>
-         Password: <input type = "text" id = "password">
-
-
-<button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
-<button id="submitregister" type="button" onclick="alert('Click 1')">Register</button></br>
-<a href="/">Home</a>
 </body>
 </html>
