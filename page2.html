@@ -9,12 +9,33 @@
 </script>
 </head>
 <body>
+<script>
+document.getElementById("submitregister").addEventListener("click", register);
+function register(){
+const login = document.getElementById("username").value
+const password = document.getElementById("password").value
+var payload = {
+    username: login,
+    password: password
+};
+
+var data = new FormData();
+data.append( "json", JSON.stringify( payload ) );
+
+fetch("https://server-ift-test.herokuapp.com/user",
+{
+    method: "POST",
+    body: data
+})
+.then(function(res){ return res.json(); })
+.then(function(data){ alert( JSON.stringify( data ) ) })
+}
+</script>
 <h1>Welcome on page 2</h1>
-<form action = "https://server-ift-test.herokuapp.com/user" method = "POST">
-         Login : <input type = "text" name = "username">  <br>
-         Password: <input type = "text" name = "password">
-         <input type = "submit" value = "Submit">
- </form>
+         Login : <input type = "text" id = "username">  <br>
+         Password: <input type = "text" id = "password">
+
+
 <button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
 <button id="submitregister" type="button" onclick="alert('Click 1')">Register</button></br>
 <a href="/">Home</a>
