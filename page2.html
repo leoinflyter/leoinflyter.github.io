@@ -29,7 +29,7 @@ var payload = {
 
 var data = new FormData();
 data.append( "json", JSON.stringify( payload ) );
-
+console.log(payLoad);
 fetch("https://server-ift-test.herokuapp.com/user",
 {
     method: "POST",
