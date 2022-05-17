@@ -10,18 +10,20 @@
 </head>
 <body>
 <h1>Welcome on page 2</h1>
-         Login : <input type = "text" id = "username">  <br>
-         Password: <input type = "text" id = "password">
-
+<form id="registerform" onsubmit="return registerForm()">
+  Login: <input name="login" type="text">
+  Password: <input name ="password"type="text">
+  <input type="submit" value="Submit">
+</form>
+<p id="log"></p>
 
 <button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
-<button id="submitregister" type="button">Register</button></br>
+
 <a href="/">Home</a>
 <script>
-document.getElementById("submitregister").addEventListener("click", register);
-function register(){
-const login = document.getElementById("username").value
-const password = document.getElementById("password").value
+function registerForm(){
+  const login = document.forms["registerform"]["login"].value;
+  const password = document.forms["registerform"]["password"].value;
 var payload = {
     username: login,
     password: password
