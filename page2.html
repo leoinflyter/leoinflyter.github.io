@@ -24,6 +24,12 @@ function submitRegister(){
   console.log("allo")
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
+  var payload = {
+    username: login,
+    password: password
+  };
+  print(payload)
+
 }
 function registerForm(){
   const login = document.forms["registerform"]["login"].value;
