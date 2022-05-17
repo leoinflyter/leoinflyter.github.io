@@ -20,8 +20,6 @@
 <a href="/">Home</a>
 <script>
 function submitRegister(){
-
-  console.log("allo")
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
   var payload = {
@@ -29,25 +27,21 @@ function submitRegister(){
     password: password
   };
   console.log(payload)
-
-}
-function registerForm(){
-  const login = document.forms["registerform"]["login"].value;
-  const password = document.forms["registerform"]["password"].value;
-var payload = {
-    username: login,
-    password: password
-};
-
-var data = new FormData();
-fetch("https://server-ift-test.herokuapp.com/user",
-{
-    method: "POST",
-    body: JSON.stringify( payload )
-})
-.then(function(res){ return res.json(); })
-.then(function(data){ alert( JSON.stringify( data ) ) })
-}
+  fetch("https://server-ift-test.herokuapp.com/user", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+  }
 </script>
 </body>
 </html>
