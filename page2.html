@@ -10,17 +10,21 @@
 </head>
 <body>
 <h1>Welcome on page 2</h1>
-<form id="registerform" onsubmit="registerForm()">
-  Login: <input name="login" type="text">
-  Password: <input name ="password"type="text">
-  <input type="submit" value="Submit">
-</form>
+  Login: <input id="login" type="text">
+  Password: <input id="password" type="text">
+  <input type="button" id="submitRegister" onClick="submitRegister()">
 <p id="log"></p>
 
 <button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
 
 <a href="/">Home</a>
 <script>
+function submitRegister(){
+
+  console.log("allo")
+  const login = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+}
 function registerForm(){
   const login = document.forms["registerform"]["login"].value;
   const password = document.forms["registerform"]["password"].value;
@@ -30,12 +34,10 @@ var payload = {
 };
 
 var data = new FormData();
-data.append( "json", JSON.stringify( payload ) );
-console.log(payLoad);
 fetch("https://server-ift-test.herokuapp.com/user",
 {
     method: "POST",
-    body: data
+    body: JSON.stringify( payload )
 })
 .then(function(res){ return res.json(); })
 .then(function(data){ alert( JSON.stringify( data ) ) })
