@@ -10,12 +10,11 @@
 </head>
 <body>
 <h1>Welcome on page 2</h1>
-  Login: <input id="login" type="text">
-  Password: <input id="password" type="text">
-  <input type="button" id="submitRegister" value="Register" onClick="submitRegister();">
-<p id="log"></p>
+Login: <input id="login" type="text"></br>
+Password: <input id="password" type="text"></br>
+<input type="button" id="submitRegister" value="Register" onClick="submitRegister();"></br>
 
-<button id="submitlogin" type="button" onclick="alert('Click 1')">Login</button></br>
+<input type="button" id="submitLogin" value="Login" onClick="submitLogin();"></br>
 
 <a href="/">Home</a>
 <script>
@@ -26,7 +25,20 @@ function submitRegister(){
   method: 'POST',
   redirect: 'follow'
 };
- const url = "https://server-ift-test.herokuapp.com/user?username="+login+"&password="+password;
+ const url = "https://server-ift-test.herokuapp.com/auth/signup?username="+login+"&password="+password;
+fetch(url, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  }
+  function submitLogin(){
+  const login = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+  var requestOptions = {
+  method: 'POST',
+  redirect: 'follow'
+};
+ const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
 fetch(url, requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
