@@ -41,7 +41,7 @@ fetch(url, requestOptions)
  const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then((result) => {console.log(result);document.cookie = "id="+result;})
+  .then(result => {console.log(result);document.cookie = "id="+result;})
   .catch(error => console.log('error', error));
   }
 </script>
