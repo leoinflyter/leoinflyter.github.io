@@ -28,7 +28,7 @@ function submitRegister(){
  const url = "https://server-ift-test.herokuapp.com/auth/signup?username="+login+"&password="+password;
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then(result => {console.log(result);document.cookie = "id="+result+";username="+login})
+  .then(result => {console.log(result);document.cookie = "id="+result;document.cookie = "username="+login})
   .catch(error => console.log('error', error));
   }
   function submitLogin(){
@@ -41,7 +41,7 @@ fetch(url, requestOptions)
  const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then(result => {console.log(result);document.cookie = "id="+result+";username="+login})
+  .then(result => {console.log(result);document.cookie = "id="+result;document.cookie = "username="+login})
   .catch(error => console.log('error', error));
   }
 </script>
