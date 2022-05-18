@@ -23,7 +23,8 @@ function submitRegister(){
   const password = document.getElementById("password").value;
   var requestOptions = {
   method: 'POST',
-  redirect: 'follow'
+  redirect: 'follow',
+  mode : "no-cors"
 };
  const url = "https://server-ift-test.herokuapp.com/auth/signup?username="+login+"&password="+password;
 fetch(url, requestOptions)
@@ -36,12 +37,13 @@ fetch(url, requestOptions)
   const password = document.getElementById("password").value;
   var requestOptions = {
   method: 'POST',
-  redirect: 'follow'
+  redirect: 'follow',
+  mode : "no-cors"
 };
  const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
 fetch(url, requestOptions)
   .then(response => response.text())
-  .then((result) => {console.log(result);document.cookie = result;})
+  .then((result) => {console.log(result);document.cookie = "id="+result;})
   .catch(error => console.log('error', error));
   }
 </script>
