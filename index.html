@@ -10,10 +10,33 @@
 </head>
 <body>
 <h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<button id="click1" type="button" onclick="alert('Click 1')">Click 1</button></br>
-<button id="click2" type="button" >Click 2</button></br>
-<input id="textbox" type="text">Oui</input></br>
+<p id="welcome"></p>
+<p></p>
+Flight: <input id="flight" type="text"></br>
+<input type="button" id="submitFlight" value="Submit Flight" onClick="submitFlight();"></br>
+<script>
+function submitFlight(){
+  const flight = document.getElementById("flight").value;
+  document.cookie = "flight="+flight;
+}
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+document.getElementById("welcome").textContent ="Hello "+(getCookie("username") || "Guest")
+</script>
 <a href="/page2.html">Login page</a>
 </body>
 </html>
