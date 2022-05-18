@@ -24,7 +24,6 @@ function submitRegister(){
   var requestOptions = {
   method: 'POST',
   redirect: 'follow',
-  mode : "no-cors"
 };
  const url = "https://server-ift-test.herokuapp.com/auth/signup?username="+login+"&password="+password;
 fetch(url, requestOptions)
@@ -38,7 +37,6 @@ fetch(url, requestOptions)
   var requestOptions = {
   method: 'POST',
   redirect: 'follow',
-  mode : "no-cors"
 };
  const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
 fetch(url, requestOptions)
