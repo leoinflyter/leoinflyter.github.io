@@ -18,6 +18,3 @@ function getCookie(cname) {
   analytics.load("PLCwcmSIvLd6GlZNLOhDMs3cBF6F1k8V");
   analytics.page();
   }}();
-  if(getCookie('id') != ''){
-   analytics.identify(getCookie('id'),{username:getCookie('username')});
-  }
