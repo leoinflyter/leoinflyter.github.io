@@ -24,3 +24,10 @@ function submitRegister() {
       .then(result => { analytics.identify(result, { username: login }); analytics.track('Login', { id: result }); console.log(result); document.cookie = "id=" + result; document.cookie = "username=" + login })
       .catch(error => console.log('error', error));
   }
+  function submitLogout() {
+    document.cookie = 'username=; Max-Age=0'
+    document.cookie = 'id=; Max-Age=0'
+    document.cookie = 'flight=; Max-Age=0'
+    analytics.track('Logout');
+    analytics.reset();
+  }
