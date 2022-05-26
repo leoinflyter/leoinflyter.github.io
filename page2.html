@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="header.js"></script>
+  <script src="header.js"></script>
+  <script>analytics.page("Login Page");</script>
 </head>
+
 <body>
-<h1>Welcome on page 2</h1>
-Login: <input id="login" type="text"></br>
-Password: <input id="password" type="text"></br>
-<input type="button" id="submitRegister" value="Register" onClick="submitRegister();"></br>
+  <h1>Welcome on page 2</h1>
+  Login: <input id="login" type="text"></br>
+  Password: <input id="password" type="text"></br>
+  <input type="button" id="submitRegister" value="Register" onClick="submitRegister();"></br>
 
-<input type="button" id="submitLogin" value="Login" onClick="submitLogin();"></br>
+  <input type="button" id="submitLogin" value="Login" onClick="submitLogin();"></br>
 
-<a href="/">Home</a>
-<script>
-function submitRegister(){
-  const login = document.getElementById("login").value;
-  const password = document.getElementById("password").value;
-  var requestOptions = {
-  method: 'POST',
-  redirect: 'follow',
-};
- const url = "https://server-ift-test.herokuapp.com/auth/signup?username="+login+"&password="+password;
-fetch(url, requestOptions)
-  .then(response => response.text())
-  .then(result => {analytics.identify(result,{username:login});console.log(result);document.cookie = "id="+result;document.cookie = "username="+login})
-  .catch(error => console.log('error', error));
-  }
-  function submitLogin(){
-  const login = document.getElementById("login").value;
-  const password = document.getElementById("password").value;
-  var requestOptions = {
-  method: 'POST',
-  redirect: 'follow',
-};
- const url = "https://server-ift-test.herokuapp.com/auth/signin?username="+login+"&password="+password;
-fetch(url, requestOptions)
-  .then(response => response.text())
-  .then(result => {analytics.identify(result,{username:login});console.log(result);document.cookie = "id="+result;document.cookie = "username="+login})
-  .catch(error => console.log('error', error));
-  }
-</script>
+  <a href="/">Home</a>
+  <script>
+    function submitRegister() {
+      const login = document.getElementById("login").value;
+      const password = document.getElementById("password").value;
+      var requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+      };
+      const url = "https://server-ift-test.herokuapp.com/auth/signup?username=" + login + "&password=" + password;
+      fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => { analytics.identify(result, { username: login }); analytics.track('Sign in', { id: result }); console.log(result); document.cookie = "id=" + result; document.cookie = "username=" + login })
+        .catch(error => console.log('error', error));
+    }
+    function submitLogin() {
+      const login = document.getElementById("login").value;
+      const password = document.getElementById("password").value;
+      var requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+      };
+      const url = "https://server-ift-test.herokuapp.com/auth/signin?username=" + login + "&password=" + password;
+      fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => { analytics.identify(result, { username: login }); analytics.track('Login', { id: result }); console.log(result); document.cookie = "id=" + result; document.cookie = "username=" + login })
+        .catch(error => console.log('error', error));
+    }
+  </script>
 </body>
+
 </html>

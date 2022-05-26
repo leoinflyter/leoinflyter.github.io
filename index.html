@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="header.js"></script>
+  <script src="header.js"></script>
+  <script>analytics.page("Homepage");</script>
 </head>
+
 <body>
-<h1>Hello World</h1>
-<p id="welcome"></p>
-<p></p>
-Flight: <input id="flight" type="text"></br>
-<input type="button" id="submitFlight" value="Submit Flight" onClick="submitFlight();"></br>
-<script>
-function submitFlight(){
-  const flight = document.getElementById("flight").value;
-  document.cookie = "flight="+flight;
-  analytics.track('Flight added', {
-  flight: flight
-});
-}
-document.getElementById("welcome").textContent ="Hello "+(getCookie("username") || "Guest")
-</script>
-<a href="/page2.html">Login page</a>
+  <h1>Hello World</h1>
+  <p id="welcome"></p>
+  <p></p>
+  Flight: <input id="flight" type="text"></br>
+  <input type="button" id="submitFlight" value="Submit Flight" onClick="submitFlight();"></br>
+  <script>
+    function submitFlight() {
+      const flight = document.getElementById("flight").value;
+      document.cookie = "flight=" + flight;
+      analytics.track('Flight added', {
+        flight: flight
+      });
+    }
+    document.getElementById("welcome").textContent = "Hello " + (getCookie("username") || "Guest")
+  </script>
+  <a href="/page2.html">Login page</a>
 </body>
+
 </html>
