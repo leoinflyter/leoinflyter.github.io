@@ -1,5 +1,3 @@
-const { cp } = require("fs/promises");
-
 function submitRegister() {
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
