@@ -1,4 +1,6 @@
 function submitRegister() {
+  analytics.track('ui.sign_page.regiter_button.click param', {});
+  analytics.track('ui.sign_page.regiter_button.click sans param');
     const login = document.getElementById("login").value;
     const password = document.getElementById("password").value;
     var requestOptions = {
