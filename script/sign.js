@@ -1,6 +1,9 @@
+const { cp } = require("fs/promises");
+
 function submitRegister() {
   const login = document.getElementById("login").value;
   const password = document.getElementById("password").value;
+  const a = "a";
   analytics.track("ui.sign_page.regiter_button.click param", {
     login : login
   });
